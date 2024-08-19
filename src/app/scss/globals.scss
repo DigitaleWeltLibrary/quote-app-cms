@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "itim";
+  src: url("/font/Itim-Regular.woff2") format("woff2"),
+    url("/font/Itim-Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "pacifico";
+  src: url("/font/Pacifico-Regular.woff2") format("woff2"),
+    url("/font/Pacifico-Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("/font/Roboto-Regular.woff2") format("woff2"),
+    url("/font/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+html {
+  font-family: "roboto";
+  main {
+    width: min(98dvw, 1000px);
+    margin-inline: auto;
+    padding: 0.5rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "itim";
+    }
+  }
+}
