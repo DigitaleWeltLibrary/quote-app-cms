@@ -1,0 +1,10 @@
+$light: #fbe0c3;
+$orange: #ffbb98;
+$grey: #7d8e95;
+$dark: #344648;
+
+@mixin mq($px) {
+  @media ($px < width) {
+    @content;
+  }
+}
