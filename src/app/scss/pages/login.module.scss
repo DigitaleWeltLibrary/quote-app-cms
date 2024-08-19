@@ -1,0 +1,28 @@
+@import "../var.scss";
+
+.main {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+
+  form {
+    max-width: 800px;
+    background: rgb($light, 0.25);
+    border: $dark 4px solid;
+    border-radius: 2rem;
+    padding: 1rem;
+    img {
+      display: block;
+      margin: 0.5rem auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: $orange;
+    }
+    input + label {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+}

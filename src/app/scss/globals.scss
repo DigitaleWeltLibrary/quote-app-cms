@@ -1,3 +1,5 @@
+@import "./var.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -41,6 +43,63 @@ html {
     h5,
     h6 {
       font-family: "itim";
+    }
+
+    .error {
+      color: red;
+      font-weight: bolder;
+      font-size: 1.1rem;
+      font-family: "itim";
+      margin: 0.25rem 0 0.5rem 0.5rem;
+    }
+
+    form {
+      label {
+        font-family: "itim";
+        color: $orange;
+        font-size: 1.5rem;
+      }
+      input {
+        &[type="text"],
+        &[type="password"] {
+          width: 100%;
+          border: none;
+          border-bottom: 2px solid $dark;
+          padding: 0 0 2.5px 0.25rem;
+          outline: none;
+          transition: 500ms all;
+          background: transparent;
+          font-size: 2rem;
+          &:focus,
+          &:focus-visible,
+          &:focus-within {
+            border-bottom: 2px solid $grey;
+          }
+        }
+        &[type="submit"] {
+          display: block;
+          margin: 1rem auto 0;
+          font-size: 1.5rem;
+          width: 50%;
+          padding-block: 0.5rem;
+          border-radius: 5rem;
+          transition: 500ms all;
+          border: 2px solid $dark;
+          cursor: pointer;
+          background: rgb($orange, 0.5);
+          font-family: "itim";
+          font-weight: bold;
+          color: $dark;
+          &:hover:not(&:disabled) {
+            background: rgb($orange, 0.75);
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+        }
+      }
     }
   }
 }
