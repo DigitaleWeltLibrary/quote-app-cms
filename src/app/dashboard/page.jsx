@@ -2,6 +2,8 @@
 
 import react, { useState } from "react";
 import TogglePage from "../components/TogglePage";
+import Data from "../components/Data";
+import Settings from "../components/settings";
 
 export default function Dashboard() {
   const [data, changepage] = useState(true);
@@ -9,7 +11,7 @@ export default function Dashboard() {
   return (
     <main>
       <TogglePage site={data} change={changepage} />
-      <h1>{data ? "Vorhandene Daten:" : "Einstellungen"}</h1>
+      {data ? <Data /> : <Settings isVisible={data} />}
     </main>
   );
 }
