@@ -2,10 +2,10 @@
 
 .toggle {
   margin: 1rem auto;
-  max-width: 400px;
+  max-width: 500px;
   border: 2px solid $dark;
   background: rgb($light, 0.75);
-  height: 30px;
+
   border-radius: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -33,5 +33,6 @@
     height: 100%;
     cursor: pointer;
     font-family: "itim";
+    font-size: 2rem;
   }
 }
