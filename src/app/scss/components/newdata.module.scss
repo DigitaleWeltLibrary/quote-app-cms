@@ -1,0 +1,33 @@
+@import "../var.scss";
+
+.form {
+  border: dashed 2px $dark;
+  border-radius: 2.5rem;
+  padding: 1rem;
+  margin-block: 1rem;
+  display: block;
+
+  h1 {
+    color: $grey;
+    margin: 0.25rem 0 1.25rem;
+  }
+
+  article {
+    @include mq(600px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+      display: block;
+      margin: auto;
+      label img {
+        display: block;
+        margin-inline: auto;
+      }
+    }
+    input[type="file"] {
+      display: none;
+    }
+  }
+}
