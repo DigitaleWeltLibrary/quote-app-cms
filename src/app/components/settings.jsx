@@ -3,12 +3,17 @@ import style from "../scss/components/settings.module.scss";
 import { useFormState } from "react-dom";
 import { editsettings } from "../server/editsettings";
 import { useState } from "react";
+import useSWR from "swr";
+import { fetchSettings } from "../server/fetchsettings";
 
 export default function Settings() {
   const [state, editdata] = useFormState(editsettings, {
     message: "",
   });
   const [change, setchnage] = useState(false);
+  const { data, isLoading } = useSWR("fetchSettings", fetchSettings);
+
+  if (isLoading) return <h1>Daten werden geladen ...</h1>;
 
   return (
     <form action={editdata} className={style.form}>
@@ -19,8 +24,7 @@ export default function Settings() {
         type="text"
         name="title"
         id="title"
-        placeholder="Ich heiße ..."
-        required
+        placeholder={data[0] || "Ich heiße ..."}
         onChange={() => setchnage(true)}
       />
       <label htmlFor="mdescription">Beschreibung (meta)</label>
@@ -28,8 +32,7 @@ export default function Settings() {
         type="text"
         name="mdescription"
         id="mdescription"
-        placeholder="Bitte beschreibe mich ..."
-        required
+        placeholder={data[1] || "Bitte beschreibe mich ..."}
         onChange={() => setchnage(true)}
       />
       <label htmlFor="mkeywords">Schlagwörter</label>
@@ -37,8 +40,7 @@ export default function Settings() {
         type="text"
         name="mkeywords"
         id="mkeywords"
-        placeholder="Kurze Wörter über mich..."
-        required
+        placeholder={data[2] || "Kurze Wörter über mich..."}
         onChange={() => setchnage(true)}
       />
 
@@ -48,8 +50,7 @@ export default function Settings() {
         type="text"
         name="impressum"
         id="impressum"
-        placeholder="www.****.**/impressum"
-        required
+        placeholder={data[3] || "www.****.**/impressum"}
         onChange={() => setchnage(true)}
       />
       <label htmlFor="dsvg">Datenschutz</label>
@@ -57,8 +58,7 @@ export default function Settings() {
         type="text"
         name="dsvg"
         id="dsvg"
-        placeholder="www.****.**/dsvg"
-        required
+        placeholder={data[4] || "www.****.**/dsvg"}
         onChange={() => setchnage(true)}
       />
       <label htmlFor="agbs">AGBs</label>
@@ -66,8 +66,7 @@ export default function Settings() {
         type="text"
         name="agbs"
         id="agbs"
-        placeholder="www.****.**/agbs"
-        required
+        placeholder={data[5] || "www.****.**/agbs"}
         onChange={() => setchnage(true)}
       />
       <p className="error">{state.message}</p>
