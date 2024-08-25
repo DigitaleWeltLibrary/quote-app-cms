@@ -33,7 +33,7 @@
 html {
   font-family: "roboto";
   main {
-    width: min(98dvw, 1000px);
+    width: min(calc(98dvw - 1rem), 1000px);
     margin-inline: auto;
     padding: 0.5rem;
     h1,

@@ -1,0 +1,60 @@
+@import "../var.scss";
+
+article.datacontainer {
+  h1 {
+    color: $grey;
+    margin: 0.25rem 0 1.25rem;
+  }
+
+  .showcard {
+    border: dashed 2px $dark;
+    border-radius: 2.5rem;
+    padding: 1rem;
+    margin-block: 1rem;
+    display: block;
+    background: rgb($light, 0.1);
+    @include mq(850px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    img {
+      max-height: 200px;
+      display: block;
+      margin-inline: auto;
+    }
+
+    section {
+      display: block;
+      margin-block: auto;
+      width: 100%;
+
+      h2 {
+        text-align: center;
+        text-wrap: balance;
+        color: $dark;
+        margin-block: 1rem;
+      }
+      div {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        
+        flex-direction: row-reverse;
+        p {
+          text-align: right;
+          font-size: 1.5rem;
+          color: $orange;
+        }
+        div {
+          svg {
+            height: 30px;
+            margin-left: 1rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
