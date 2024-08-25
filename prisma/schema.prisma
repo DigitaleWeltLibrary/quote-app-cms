@@ -14,7 +14,14 @@ datasource db {
 }
 
 model users {
-  id String @id @default(cuid())
+  id       String @id @default(cuid())
   username String @unique
   password String
+}
+
+model data {
+  id     String @id @default(cuid())
+  quote  String @unique
+  author String
+  img    String
 }
