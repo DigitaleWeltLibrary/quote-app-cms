@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import style from "../scss/components/newdata.module.scss";
+import { newquote } from "../server/newquote";
+import { useFormState } from "react-dom";
 
 export default function NewData() {
   const [upload, changeupload] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
+  const [state, newdata] = useFormState(newquote, {
+    message: "",
+  });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -19,7 +24,7 @@ export default function NewData() {
   };
 
   return (
-    <form action="" className={style.form}>
+    <form action={newdata} className={style.form} encType="multipart/form-data">
       <h1>Neuen Datensatz erstellen</h1>
       <article>
         <section>
@@ -59,6 +64,7 @@ export default function NewData() {
             id="author"
             placeholder="Ich bin ..."
           />
+          <p className="error">{state.message}</p>
           <input type="submit" value="Erstellen" disabled={!upload} />
         </section>
       </article>
