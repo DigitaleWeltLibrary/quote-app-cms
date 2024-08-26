@@ -6,10 +6,19 @@
   padding: 1rem;
   margin-block: 1rem;
   display: block;
+  position: relative;
+
+  .x {
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+    cursor: pointer;
+  }
 
   h1 {
     color: $grey;
     margin: 0.25rem 0 1.25rem;
+    font-size: 1.5rem;
   }
 
   article {

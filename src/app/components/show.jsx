@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deletequote } from "../server/deletequote";
 
-export default function Show({ data, styleclass, refetch }) {
+export default function Show({ data, styleclass, refetch, changeedit }) {
   return (
     <section className={styleclass}>
       <img
@@ -20,7 +20,11 @@ export default function Show({ data, styleclass, refetch }) {
 
         <div>
           <div>
-            <FontAwesomeIcon color="grey" icon={faPen} />
+            <FontAwesomeIcon
+              color="grey"
+              icon={faPen}
+              onClick={() => changeedit(data.id)}
+            />
             <FontAwesomeIcon
               color="red"
               icon={faTrash}
