@@ -12,12 +12,13 @@ export default function Data({ show, newdatavisibility }) {
 
   const refetch = () => mutate("fetchdata");
 
-    useEffect(() => {
+  useEffect(() => {
     refetch();
   }, [show]);
 
   return (
     <>
+     
       {show ? <NewData newdatavisibility={newdatavisibility} /> : null}
 
       <ShowData load={isLoading} requestdata={data} refetch={refetch} />
