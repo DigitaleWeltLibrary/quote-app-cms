@@ -40,19 +40,34 @@ export async function newquote(Formstate, formdata) {
     console.log("Zitat erfolgreich erstellt:", data);
   } catch (error) {
     if (error.code === "P2002") {
-      return { message: "Fehler: Dieses Zitat existiert bereits." };
+      return {
+        message: "Fehler: Dieses Zitat existiert bereits.",
+        status: 400,
+      };
     } else {
-      return { message: "Ein anderer Fehler ist aufgetreten:", error };
+      return {
+        message: `Ein anderer Fehler ist aufgetreten: ${error}`,
+        status: 400,
+      };
     }
   }
 
   if (!imgBase64 && author !== "") {
-    return { message: "Datensatz mit Zitat und Autor wurde erstellt." };
+    return {
+      message: "Datensatz mit Zitat und Autor wurde erstellt.",
+      status: 200,
+    };
   } else if (!imgBase64) {
-    return { message: "Datensatz mit Zitat wurde erstellt." };
+    return { message: "Datensatz mit Zitat wurde erstellt.", status: 200 };
   } else if (author === "") {
-    return { message: "Datensatz mit Zitat und Bild wurde erstellt." };
+    return {
+      message: "Datensatz mit Zitat und Bild wurde erstellt.",
+      status: 200,
+    };
   } else {
-    return { message: "Datensatz mit Zitat, Bild und Autor wurde erstellt." };
+    return {
+      message: "Datensatz mit Zitat, Bild und Autor wurde erstellt.",
+      status: 200,
+    };
   }
 }

@@ -2,9 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deletequote } from "../server/deletequote";
-import { mutate } from "swr";
 
-export default function Show({ data, styleclass }) {
+export default function Show({ data, styleclass, refetch }) {
   return (
     <section className={styleclass}>
       <img
@@ -27,7 +26,7 @@ export default function Show({ data, styleclass }) {
               icon={faTrash}
               onClick={() => {
                 deletequote(data.id);
-                mutate("fetchdata");
+                refetch();
               }}
             />
           </div>

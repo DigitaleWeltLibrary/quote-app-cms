@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../scss/components/newdata.module.scss";
 import { newquote } from "../server/newquote";
 import { useFormState } from "react-dom";
 
-export default function NewData() {
+export default function NewData({ newdatavisibility }) {
   const [upload, changeupload] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
   const [state, newdata] = useFormState(newquote, {
     message: "",
+    status: "",
   });
+
+  useEffect(() => {
+    if (state.message || state.message) {
+      newdatavisibility(false);
+    }
+  }, [state.message, state.status, newdatavisibility]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
