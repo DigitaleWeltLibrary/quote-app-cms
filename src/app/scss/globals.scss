@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: rgb($light, 0.3);
+}
 
 @font-face {
   font-family: "itim";
@@ -35,7 +38,7 @@ html {
   main {
     width: min(calc(98dvw - 1rem), 1000px);
     margin-inline: auto;
- 
+
     h1,
     h2,
     h3,

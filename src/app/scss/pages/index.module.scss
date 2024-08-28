@@ -1,0 +1,130 @@
+@import "../var.scss";
+
+.main {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+
+  article {
+    $pad: 1.5rem;
+    background-color: rgb($light, 0.5);
+    padding: $pad $pad 0.25rem $pad;
+    border-radius: 1.25rem;
+    border: 3px dashed $orange;
+    width: min(calc(100dvw - ($pad * 2)), 600px);
+    position: relative;
+
+    &::before {
+      content: "“";
+      font-family: "Arial", sans-serif;
+      position: absolute;
+      top: -9rem;
+      left: -4rem;
+      font-size: 30rem;
+      z-index: -1;
+      opacity: 0.25;
+      color: $grey;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 1.75rem + 1dvw, 2.5rem);
+      color: $orange;
+      margin-block: 0.5rem 1rem;
+      text-wrap: balance;
+      &::before {
+        content: "“";
+        font-family: "Arial", sans-serif;
+        z-index: -1;
+        opacity: 0.25;
+        color: $grey;
+      }
+      &::after {
+        content: "”";
+        font-family: "Arial", sans-serif;
+        z-index: -1;
+        opacity: 0.25;
+        color: $grey;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      opacity: 0.75;
+      color: $dark;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: $grey;
+      text-align: right;
+      font-style: italic;
+      &::before {
+        content: "— ";
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 250px;
+      border-radius: 1.5rem;
+      display: block;
+      margin: 1rem auto 0;
+    }
+
+    section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-top: 2px solid $light;
+      margin-top: 1rem;
+
+      a {
+        font-size: 1.25rem;
+        color: $grey;
+        text-align: right;
+        font-family: "itim";
+        text-decoration: none;
+        &:hover svg {
+          scale: 1.1;
+        }
+        svg {
+          margin-left: 0.25rem;
+          transition: 500ms all;
+        }
+      }
+
+      div {
+        aspect-ratio: 1/1;
+        height: 50px;
+        border: dotted $grey 2px;
+        transition: 500ms all;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+
+        svg {
+          display: block;
+          margin: 0.65rem auto;
+        }
+        &:hover {
+          border-radius: 25%;
+        }
+      }
+
+      button {
+        border: dotted $grey 2px;
+        background-color: transparent;
+        color: $orange;
+        font-size: 1.25rem;
+        padding: 0.2rem 0.5rem;
+        font-family: "itim";
+        cursor: pointer;
+        transition: 500ms all;
+        &:hover {
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+}
