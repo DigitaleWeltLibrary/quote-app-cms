@@ -1,9 +1,9 @@
 "use client";
 import react, { useState } from "react";
-import TogglePage from "../components/TogglePage";
-import Data from "../components/Data";
-import Settings from "../components/settings";
-import Header from "../components/Header";
+import TogglePage from "../../components/TogglePage";
+import Data from "../../components/Data";
+import Settings from "../../components/settings";
+import Header from "../../components/Header";
 
 export default function Dashboard() {
   const [data, changepage] = useState(true);

@@ -1,10 +1,8 @@
 "use server";
 import fs from "fs";
 import path from "path";
-import Card from "./components/card";
-import style from "./scss/pages/index.module.scss";
-import { metadata } from "./layout";
-import { title } from "process";
+import Card from "../components/card";
+import style from "../scss/pages/index.module.scss";
 
 
 export async function generateMetadata() {

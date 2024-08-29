@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import styles from "../scss/pages/login.module.scss";
+import styles from "../../scss/pages/login.module.scss";
 import React, { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
-import { checkuser } from "../server/checkuser";
+import { checkuser } from "../../server/checkuser";
 
 export default function Home() {
   const [state, backendcheck] = useFormState(checkuser, {
