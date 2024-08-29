@@ -6,8 +6,13 @@ import {
   faRightFromBracket,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import { logout } from "@/lib/auth";
 
 export default function Header({ newdatavisibility, show, shownewdata }) {
+  async function removesession() {
+    await logout();
+  }
+
   return (
     <header className={style.header}>
       <h2>Dashboard</h2>
@@ -19,7 +24,12 @@ export default function Header({ newdatavisibility, show, shownewdata }) {
             onClick={() => newdatavisibility(!shownewdata)}
           />
         )}
-        <FontAwesomeIcon icon={faRightFromBracket} color="#7d8e95" />
+
+        <FontAwesomeIcon
+          icon={faRightFromBracket}
+          color="#7d8e95"
+          onClick={removesession}
+        />
       </section>
     </header>
   );

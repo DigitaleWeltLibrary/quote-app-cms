@@ -1,23 +1,24 @@
 "use server";
-
+import { encrypt } from "@/lib/helpauth";
 import { safedata } from "@/lib/serverhelpfunc";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+import { cookies } from "next/headers";
 
 const prisma = new PrismaClient();
 
 export async function checkuser(Formstate, formdata) {
-  const username = safedata(formdata.get("username"));
-  const password = safedata(formdata.get("password"));
-
-  if (!username || !password) {
-    return {
-      success: false,
-      message: "Keine Eingabe am Server erhalten.",
-    };
-  }
-
   try {
+    const username = await safedata(formdata.get("username"));
+    const password = await safedata(formdata.get("password"));
+
+    if (!username || !password) {
+      return {
+        success: false,
+        message: "Keine Eingabe am Server erhalten.",
+      };
+    }
+
     const user = await prisma.users.findFirst({
       where: {
         username: username,
@@ -29,7 +30,15 @@ export async function checkuser(Formstate, formdata) {
         success: false,
         message: "Nutzer nicht gefunden.",
       };
-    } else if (await bcrypt.compare(password, user.password)) {
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
+    if (isPasswordCorrect) {
+      const expires = new Date(Date.now() + 60 * 60 * 1000);
+      const session = await encrypt({ user, expires });
+
+      cookies().set("session", session, { expires, httpOnly: true });
       return {
         success: true,
         message: "Nutzer ist berechtigt.",
@@ -41,6 +50,7 @@ export async function checkuser(Formstate, formdata) {
       };
     }
   } catch (error) {
+    console.error(`Fehler beim Überprüfen des Nutzers: ${error.message}`);
     return {
       success: false,
       message: "Serverfehler",
