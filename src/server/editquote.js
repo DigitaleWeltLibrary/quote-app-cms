@@ -1,9 +1,8 @@
 "use server";
+import { safedata } from "@/lib/serverhelpfunc";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
-const safedata = (data) => data.trim()?.replace(/></g, "");
 
 function arrayBufferToBase64(buffer) {
   return Buffer.from(buffer).toString("base64");

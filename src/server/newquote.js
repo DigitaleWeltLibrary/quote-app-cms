@@ -2,14 +2,9 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { PrismaClient } from "@prisma/client";
+import { arrayBufferToBase64, safedata } from "@/lib/serverhelpfunc";
 
 const prisma = new PrismaClient();
-
-const safedata = (data) => data.trim()?.replace(/></g, "");
-
-function arrayBufferToBase64(buffer) {
-  return Buffer.from(buffer).toString("base64");
-}
 
 const uploadDir = path.join(process.cwd(), "public", "uploads");
 fs.mkdir(uploadDir, { recursive: true }).catch(console.error);

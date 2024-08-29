@@ -1,13 +1,14 @@
 "use server";
 
+import { safedata } from "@/lib/serverhelpfunc";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
 export async function checkuser(Formstate, formdata) {
-  const username = formdata.get("username").trim()?.replace(/></g, "");
-  const password = formdata.get("password").trim()?.replace(/></g, "");
+  const username = safedata(formdata.get("username"));
+  const password = safedata(formdata.get("password"));
 
   if (!username || !password) {
     return {

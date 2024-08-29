@@ -1,9 +1,8 @@
 "use server";
+import { safedata } from "@/lib/serverhelpfunc";
 import fs from "fs";
 import { revalidatePath } from "next/cache";
 import path from "path";
-
-const safedata = (data) => data.trim()?.replace(/></g, "");
 
 export async function editsettings(Formstate, formdata) {
   const inputs = [
