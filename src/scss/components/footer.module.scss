@@ -1,0 +1,21 @@
+@import "../var.scss";
+
+.footer {
+  gap: 1rem;
+  font-family: "itim";
+  margin: 0.5rem;
+  a {
+    color: rgb($dark, 0.8);
+    transition: 500ms all;
+    font-size: 1.5rem;
+    text-decoration: none;
+    &:hover {
+      color: $dark;
+      font-weight: bold;
+    }
+
+    & + a {
+      margin-left: 0.5rem;
+    }
+  }
+}
