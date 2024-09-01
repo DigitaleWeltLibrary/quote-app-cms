@@ -7,7 +7,7 @@
 
   form {
     max-width: 800px;
-    background: rgb($light, 0.25);
+    background-color: rgb($light, 0.25);
     border: $dark 4px solid;
     border-radius: 2rem;
     padding: 1rem;
@@ -18,11 +18,19 @@
 
     h1 {
       text-align: center;
-      color: $orange;
+      color: $brown;
     }
     input + label {
       display: block;
       margin-top: 1rem;
+    }
+    input {
+      font-family: "itim";
+      color: $dark;
+
+      &::placeholder {
+        opacity: 0.8;
+      }
     }
   }
 }

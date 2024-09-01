@@ -20,14 +20,14 @@ export default function Header({ newdatavisibility, show, shownewdata }) {
         {!show ? null : (
           <FontAwesomeIcon
             icon={faPenToSquare}
-            color="#7d8e95"
+            color="rgb(164, 48, 75)"
             onClick={() => newdatavisibility(!shownewdata)}
           />
         )}
 
         <FontAwesomeIcon
           icon={faRightFromBracket}
-          color="#7d8e95"
+          color="rgb(164, 48, 75)"
           onClick={removesession}
         />
       </section>

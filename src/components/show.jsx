@@ -21,12 +21,12 @@ export default function Show({ data, styleclass, refetch, changeedit }) {
         <div>
           <div>
             <FontAwesomeIcon
-              color="grey"
+              color="rgb(179, 95, 53)"
               icon={faPen}
               onClick={() => changeedit(data.id)}
             />
             <FontAwesomeIcon
-              color="red"
+              color="#FF0000"
               icon={faTrash}
               onClick={() => {
                 deletequote(data.id);

@@ -7,7 +7,7 @@
 
   article {
     $pad: 1.5rem;
-    background-color: rgb($light, 0.5);
+    background-color: rgb($light, 0.25);
     padding: $pad $pad 0.25rem $pad;
     border-radius: 1.25rem;
     border: 3px dashed $orange;
@@ -22,8 +22,8 @@
       left: -4rem;
       font-size: 30rem;
       z-index: -1;
-      opacity: 0.25;
-      color: $grey;
+      opacity: 0.15;
+      color: $dark;
     }
 
     h1 {
@@ -36,14 +36,14 @@
         font-family: "Arial", sans-serif;
         z-index: -1;
         opacity: 0.25;
-        color: $grey;
+        color: $brown;
       }
       &::after {
         content: "”";
         font-family: "Arial", sans-serif;
         z-index: -1;
         opacity: 0.25;
-        color: $grey;
+        color: $brown;
       }
     }
 
@@ -55,9 +55,10 @@
 
     p {
       font-size: 1.25rem;
-      color: $grey;
+      color: $brown;
       text-align: right;
       font-style: italic;
+      color: $dark;
       &::before {
         content: "— ";
       }
@@ -81,7 +82,7 @@
 
       a {
         font-size: 1.25rem;
-        color: $grey;
+        color: $brown;
         text-align: right;
         font-family: "itim";
         text-decoration: none;
@@ -97,7 +98,7 @@
       div {
         aspect-ratio: 1/1;
         height: 50px;
-        border: dotted $grey 2px;
+        border: dotted $orange 2px;
         transition: 500ms all;
         border-radius: 50%;
         cursor: pointer;
@@ -113,7 +114,7 @@
       }
 
       button {
-        border: dotted $grey 2px;
+        border: dotted $orange 2px;
         background-color: transparent;
         color: $orange;
         font-size: 1.25rem;

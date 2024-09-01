@@ -45,13 +45,13 @@ export default function EditData({ data, setEditId }) {
       encType="multipart/form-data"
       onSubmit={() => {
         setEditId(null);
-    
       }}
     >
       <FontAwesomeIcon
         size="xl"
         className={style.x}
         icon={faX}
+        color="rgb(164, 48, 75)"
         onClick={() => setEditId(null)}
       />
       <h1>Datensatz bearbeiten</h1>

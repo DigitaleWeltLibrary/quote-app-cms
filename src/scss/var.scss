@@ -1,7 +1,7 @@
-$light: #fbe0c3;
+$light: rgb(255, 229, 189);
 $orange: rgb(255, 187, 152);
-$grey: #7d8e95;
-$dark: #344648;
+$brown: rgb(179, 95, 53);
+$dark: rgb(164, 48, 75);
 
 @mixin mq($px) {
   @media ($px < width) {

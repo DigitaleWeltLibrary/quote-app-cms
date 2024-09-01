@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb($light, 0.3);
+  background-color: rgb($light, 0.6);
 }
 
 @font-face {
@@ -80,7 +80,7 @@ html {
           &:focus,
           &:focus-visible,
           &:focus-within {
-            border-bottom: 2px solid $grey;
+            border-bottom: 2px solid $brown;
           }
         }
         &[type="submit"] {

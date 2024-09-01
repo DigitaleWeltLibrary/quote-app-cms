@@ -39,6 +39,7 @@
     p {
       margin-left: 0.5rem;
       display: none;
+      color: $brown;
       @include mq(800px) {
         display: block;
       }

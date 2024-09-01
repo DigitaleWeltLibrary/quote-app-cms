@@ -6,11 +6,15 @@ export default function TogglePage({ site, change }) {
   return (
     <section className={site ? `${style.toggle} ${style.data}` : style.toggle}>
       <span onClick={() => change(true)}>
-        <FontAwesomeIcon icon={faGear} color="#7d8e95" size="xxl" />
+        <FontAwesomeIcon icon={faGear} color="rgb(179, 95, 53)" size="xxl" />
         <p>Daten</p>
       </span>
       <span onClick={() => change(false)}>
-        <FontAwesomeIcon icon={faListCheck} color="#7d8e95"  size="xxl"/>
+        <FontAwesomeIcon
+          icon={faListCheck}
+          color="rgb(179, 95, 53)"
+          size="xxl"
+        />
         <p>Einstellungen</p>
       </span>
     </section>
